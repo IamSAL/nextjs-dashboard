@@ -38,7 +38,8 @@ export async function fetchRevenue() {
 }
 
 export async function fetchLatestInvoices() {
-    noStore();
+  noStore();
+    await new Promise((resolve) => setTimeout(resolve, 7000));
   try {
     const data = await sql<LatestInvoiceRaw>`
       SELECT invoices.amount, customers.name, customers.image_url, customers.email, invoices.id
@@ -59,7 +60,8 @@ export async function fetchLatestInvoices() {
 }
 
 export async function fetchCardData() {
-    noStore();
+  noStore();
+    await new Promise((resolve) => setTimeout(resolve, 2000));
   try {
     // You can probably combine these into a single SQL query
     // However, we are intentionally splitting them to demonstrate
