@@ -7,30 +7,50 @@ import { redirect } from "next/navigation";
 
 const createFormSchema = z.object({
   id: z.string(),
-  customerId: z.string(),
-  amount: z.coerce.number(),
-  status: z.enum(["pending", "paid"]),
+  customerId: z.string({ invalid_type_error: "Please select a customer" }),
+  amount: z.coerce
+    .number()
+    .gt(0, { message: "Please enter an amount greater than $0." }),
+  status: z.enum(["pending", "paid"], {
+    invalid_type_error: "Please select an invoice status.",
+  }),
   date: z.string(),
 });
 
 const CreateInvoiceSchema = createFormSchema.omit({ id: true, date: true });
 
-export async function createInvoice(formData: FormData) {
+export type State = {
+  errors?: {
+    customerId?: string[];
+    amount?: string[];
+    status?: string[];
+  };
+  message?: string | null;
+};
+
+
+export async function createInvoice(prevState: State, formData: FormData) {
   const rawFormData = {
     customerId: formData.get("customerId"),
     amount: formData.get("amount"),
     status: formData.get("status"),
   };
-
-  const { amount, customerId, status } = CreateInvoiceSchema.parse(rawFormData);
-
-  const amountInCents = amount * 100;
+  const validatedFields = CreateInvoiceSchema.safeParse(rawFormData);
+  if (!validatedFields.success) {
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+      message:"Missing Fields, Failed to Create Invoice."
+    }
+  }
+  
+  const amountInCents = validatedFields.data.amount * 100;
   const date = new Date().toISOString().split("T")[0];
 
   try {
     await sql`INSERT INTO invoices (customer_id, amount, status,date)
-        VALUES (${customerId},${amountInCents},${status},${date})`;
+        VALUES (${validatedFields.data.customerId},${amountInCents},${validatedFields.data.status},${date})`;
   } catch (error) {
+    console.log(error)
     return {
       message: "Database Error: Failed to Create Invoice.",
     };
@@ -42,13 +62,21 @@ export async function createInvoice(formData: FormData) {
 
 const UpdateInvoice = createFormSchema.omit({ id: true, date: true });
 
-export async function updateInvoice(id: string, formData: FormData) {
-  const { customerId, amount, status } = UpdateInvoice.parse({
+export async function updateInvoice(id: string, prevState: State, formData: FormData) {
+  const UpdateFields = UpdateInvoice.safeParse({
     customerId: formData.get("customerId"),
     amount: formData.get("amount"),
     status: formData.get("status"),
   });
 
+  if (!UpdateFields.success) {
+    return {
+      errors: UpdateFields.error.flatten().fieldErrors,
+      message: "Missing Fields, Failed to Update Invoice.",
+    };
+  }
+
+  const { customerId, amount, status } = UpdateFields.data;
   const amountInCents = amount * 100;
 
   try {
