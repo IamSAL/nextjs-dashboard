@@ -1,7 +1,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import PageHero from '../ui/common/PageHero'
+import PageHero from '@/app/ui/common/PageHero'
 
 export default function Home() {
   return (

@@ -1,9 +1,9 @@
 import React, { Suspense } from 'react'
-import { fetchCardData, fetchLatestInvoices, fetchRevenue } from '../../lib/data'
-import LatestInvoices from '../../ui/dashboard/latest-invoices';
-import RevenueChart from '../../ui/dashboard/revenue-chart';
-import { lusitana } from '../../ui/fonts';
-import CardWrapper, { Card } from '../../ui/dashboard/cards';
+import { fetchCardData, fetchLatestInvoices, fetchRevenue } from '@/app/lib/data'
+import LatestInvoices from '@/app/ui/dashboard/latest-invoices';
+import RevenueChart from '@/app/ui/dashboard/revenue-chart';
+import { lusitana } from '@/app/ui/fonts';
+import CardWrapper, { Card } from '@/app/ui/dashboard/cards';
 import { CardsSkeleton, LatestInvoicesSkeleton, RevenueChartSkeleton } from '@/app/ui/skeletons';
 
 const Page = async () => {
