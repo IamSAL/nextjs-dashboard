@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@heroicons/react': ^2.0.18
+  '@radix-ui/react-icons': ^1.3.0
   '@tailwindcss/forms': ^0.5.6
   '@types/bcrypt': ^5.0.1
   '@types/node': 20.5.7
@@ -18,27 +19,35 @@ specifiers:
   next-auth: 5.0.0-beta.3
   postcss: 8.4.31
   prettier: ^3.0.3
+  prisma: ^5.6.0
   react: 18.2.0
   react-dom: 18.2.0
+  sass: ^1.69.5
+  tailwind-merge: ^2.0.0
   tailwindcss: 3.3.3
+  tailwindcss-animate: ^1.0.7
   typescript: 5.2.2
   use-debounce: ^10.0.0
   zod: ^3.22.2
 
 dependencies:
   '@heroicons/react': 2.0.18_react@18.2.0
+  '@radix-ui/react-icons': 1.3.0_react@18.2.0
   '@tailwindcss/forms': 0.5.7_tailwindcss@3.3.3
   '@types/node': 20.5.7
   '@vercel/postgres': 0.5.1
   autoprefixer: 10.4.15_postcss@8.4.31
   bcrypt: 5.1.1
   clsx: 2.0.0
-  next: 14.0.2_biqbaboplfbrettd7655fr4n2y
+  next: 14.0.2_2sxiyfzeap2fgw7t7svnurc6pi
   next-auth: 5.0.0-beta.3_next@14.0.2+react@18.2.0
   postcss: 8.4.31
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  sass: 1.69.5
+  tailwind-merge: 2.0.0
   tailwindcss: 3.3.3
+  tailwindcss-animate: 1.0.7_tailwindcss@3.3.3
   typescript: 5.2.2
   use-debounce: 10.0.0_react@18.2.0
   zod: 3.22.4
@@ -51,6 +60,7 @@ devDependencies:
   eslint: 8.53.0
   eslint-config-next: 14.0.2_5iy6f2d3forlnf27wdbuobyvmm
   prettier: 3.1.0
+  prisma: 5.6.0
 
 packages:
 
@@ -85,7 +95,6 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.14.0
-    dev: true
 
   /@eslint-community/eslint-utils/4.4.0_eslint@8.53.0:
     resolution: {integrity: sha512-1/sA4dwrzBAyeUoQ6oxahHKmrZvsnLCg4RfxW3ZFGGmQkSNQPFNLV9CUEFQP1x9EYXHTo5p6xdhZM1Ne9p/AfA==}
@@ -317,6 +326,19 @@ packages:
 
   /@panva/hkdf/1.1.1:
     resolution: {integrity: sha512-dhPeilub1NuIG0X5Kvhh9lH4iW3ZsHlnzwgwbOlgwQ2wG1IqFzsgHqmKPk3WzsdWAeaxKJxgM0+W433RmN45GA==}
+    dev: false
+
+  /@prisma/engines/5.6.0:
+    resolution: {integrity: sha512-Mt2q+GNJpU2vFn6kif24oRSBQv1KOkYaterQsi0k2/lA+dLvhRX6Lm26gon6PYHwUM8/h8KRgXIUMU0PCLB6bw==}
+    requiresBuild: true
+    dev: true
+
+  /@radix-ui/react-icons/1.3.0_react@18.2.0:
+    resolution: {integrity: sha512-jQxj/0LKgp+j9BiTXz3O3sgs26RNet2iLWmsPyRz2SIcR4q/4SbazXfnYwbAr+vLYKSfc7qxzyGQA1HLlYiuNw==}
+    peerDependencies:
+      react: ^16.x || ^17.x || ^18.x
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /@rushstack/eslint-patch/1.5.1:
@@ -1608,6 +1630,10 @@ packages:
     engines: {node: '>= 4'}
     dev: true
 
+  /immutable/4.3.4:
+    resolution: {integrity: sha512-fsXeu4J4i6WNWSikpI88v/PcVflZz+6kMhUfIwc5SY+poQRPnaf5V7qds6SUyUN3cVxEzuCab7QIoLOQ+DQ1wA==}
+    dev: false
+
   /import-fresh/3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
     engines: {node: '>=6'}
@@ -2018,11 +2044,11 @@ packages:
         optional: true
     dependencies:
       '@auth/core': 0.0.0-manual.e9863699
-      next: 14.0.2_biqbaboplfbrettd7655fr4n2y
+      next: 14.0.2_2sxiyfzeap2fgw7t7svnurc6pi
       react: 18.2.0
     dev: false
 
-  /next/14.0.2_biqbaboplfbrettd7655fr4n2y:
+  /next/14.0.2_2sxiyfzeap2fgw7t7svnurc6pi:
     resolution: {integrity: sha512-jsAU2CkYS40GaQYOiLl9m93RTv2DA/tTJ0NRlmZIBIL87YwQ/xR8k796z7IqgM3jydI8G25dXvyYMC9VDIevIg==}
     engines: {node: '>=18.17.0'}
     hasBin: true
@@ -2044,6 +2070,7 @@ packages:
       postcss: 8.4.31
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+      sass: 1.69.5
       styled-jsx: 5.1.1_react@18.2.0
       watchpack: 2.4.0
     optionalDependencies:
@@ -2406,6 +2433,15 @@ packages:
     resolution: {integrity: sha512-WuxUnVtlWL1OfZFQFuqvnvs6MiAGk9UNsBostyBOB0Is9wb5uRESevA6rnl/rkksXaGX3GzZhPup5d6Vp1nFew==}
     dev: false
 
+  /prisma/5.6.0:
+    resolution: {integrity: sha512-EEaccku4ZGshdr2cthYHhf7iyvCcXqwJDvnoQRAJg5ge2Tzpv0e2BaMCp+CbbDUwoVTzwgOap9Zp+d4jFa2O9A==}
+    engines: {node: '>=16.13'}
+    hasBin: true
+    requiresBuild: true
+    dependencies:
+      '@prisma/engines': 5.6.0
+    dev: true
+
   /prop-types/15.8.1:
     resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==}
     dependencies:
@@ -2479,7 +2515,6 @@ packages:
 
   /regenerator-runtime/0.14.0:
     resolution: {integrity: sha512-srw17NI0TUWHuGa5CFGGmhfNIeja30WMBfbslPNhf6JrqQlLN5gcrvig1oqPxiVaXb0oW0XRKtH6Nngs5lKCIA==}
-    dev: true
 
   /regexp.prototype.flags/1.5.1:
     resolution: {integrity: sha512-sy6TXMN+hnP/wMy+ISxg3krXx7BAtWVO4UouuCN/ziM9UEne0euamVNafDfvC83bRNr95y0V5iijeDQFUNpvrg==}
@@ -2552,6 +2587,16 @@ packages:
       get-intrinsic: 1.2.2
       is-regex: 1.1.4
     dev: true
+
+  /sass/1.69.5:
+    resolution: {integrity: sha512-qg2+UCJibLr2LCVOt3OlPhr/dqVHWOa9XtZf2OjbLs/T4VPSJ00udtgJxH3neXZm+QqX8B+3cU7RaLqp1iVfcQ==}
+    engines: {node: '>=14.0.0'}
+    hasBin: true
+    dependencies:
+      chokidar: 3.5.3
+      immutable: 4.3.4
+      source-map-js: 1.0.2
+    dev: false
 
   /scheduler/0.23.0:
     resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
@@ -2743,6 +2788,20 @@ packages:
   /supports-preserve-symlinks-flag/1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
+
+  /tailwind-merge/2.0.0:
+    resolution: {integrity: sha512-WO8qghn9yhsldLSg80au+3/gY9E4hFxIvQ3qOmlpXnqpDKoMruKfi/56BbbMg6fHTQJ9QD3cc79PoWqlaQE4rw==}
+    dependencies:
+      '@babel/runtime': 7.23.2
+    dev: false
+
+  /tailwindcss-animate/1.0.7_tailwindcss@3.3.3:
+    resolution: {integrity: sha512-bl6mpH3T7I3UFxuvDEXLxy/VuFxBk5bbzplh7tXI68mwMokNYd1t9qPBHlnyTwfa4JGC4zP516I1hYYtQ/vspA==}
+    peerDependencies:
+      tailwindcss: '>=3.0.0 || insiders'
+    dependencies:
+      tailwindcss: 3.3.3
+    dev: false
 
   /tailwindcss/3.3.3:
     resolution: {integrity: sha512-A0KgSkef7eE4Mf+nKJ83i75TMyq8HqY3qmFIJSWy8bNt0v1lG7jUcpGpoTFxAwYcWOphcTBLPPJg+bDfhDf52w==}
