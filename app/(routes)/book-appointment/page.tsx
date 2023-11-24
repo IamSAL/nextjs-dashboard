@@ -1,18 +1,19 @@
 
 import PageSubHero from '@/app/ui/common/PageSubHero'
+import SiteLogo from '@/app/ui/site-logo'
 import Link from 'next/link'
 import React from 'react'
 
 const Page = () => {
   return (
     <>
-      <PageSubHero />
+      <PageSubHero title='Book appointment'/>
       <section className="flex flex-col md:flex-row h-screen items-center">
   <div className="bg-white w-full md:max-w-md lg:max-w-full md:mx-auto md:mx-0 md:w-1/2 h-screen px-6 lg:px-16 xl:px-24
   flex items-center justify-center">
     <div className="w-full h-100">
       <Link className="font-bold text-2xl" href="/">
-        DristiAI
+       <SiteLogo/>
             </Link>
       <h1 className="text-xl md:text-3xl font-bold leading-tight mt-12">Book your appointment with DristiAI in 2
         minutes</h1>

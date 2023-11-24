@@ -1,11 +1,12 @@
 import React from 'react'
+import SiteLogo from '@/app/ui/site-logo'
 
 const Footer = () => {
   return (
       <footer className="relative bg-gray-900 text-white px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-12 lg:py-24">
           <div className="flex flex-col md:flex-row">
               <div className="w-full lg:w-2/6 lg:mx-4 lg:pr-8">
-                  <h3 className="font-bold text-2xl">DristiAI</h3>
+                  <h3 className="font-bold text-2xl"><SiteLogo/></h3>
                   <p className="text-gray-400">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy.</p>
                   <form className="flex items-center mt-6">
                       <div className="w-full">
